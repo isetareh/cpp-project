@@ -85,5 +85,7 @@ int main()
     std::cout << "Average insertion time for VectorPtr in milliseconds: " << VECTOR_POINTER_INSERT_AVG << std::endl;
     std::cout << "Average remove time for VectorPtr in milliseconds: " << VECTOR_POINTER_REMOVE_AVG << std::endl;
 
+    std::cin.get();
+
     return 0;
 }
