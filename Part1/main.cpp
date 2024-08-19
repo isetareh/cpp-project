@@ -11,7 +11,7 @@ double VECTOR_POINTER_REMOVE_AVG = 0;
 
 void TestVector()
 {
-    Vector<Shape> vector(10000000);
+    Vector<Shape> vector(100);
 
     double VECTOR_INSERT_SUM = 0;
     double VECTOR_REMOVE_SUM = 0;
