@@ -34,17 +34,6 @@ The `poly.h` header file contains definitions and functions for creating 2D poly
 
 The `shape.h` header file extends 2D shapes into 3D shapes via a height and density parameter, calculate their volume, surface area and mass.
 
-#### Key Functions
-
-- **`ThreeDShape create3DShape(float height, const Polygon& base)`**
-  - Constructs a 3D shape using a base polygon and a specified height.
-  
-- **`float getVolume()`**
-  - Calculates the volume of the 3D shape.
-  
-- **`float getSurfaceArea()`**
-  - Calculates the surface area of the 3D shape.
-
 ### `device.h`
 
 The `device.h` header file computes physical properties related to the shape and the device using vectors.
