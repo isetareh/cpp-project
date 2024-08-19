@@ -17,3 +17,5 @@ This project compares the performance of two custom vector implementations in C+
 ## One of my test example:
 ![res](Part1/result1.png)
 
+The vector that made by double pointer is working faster than the other one.
+
