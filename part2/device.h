@@ -1,106 +1,100 @@
-#pragma once
+#include <vector>
 #include "shape.h"
-#include "vector.h"
 
 
-class Device: public Shape
+class Device
+
 {
-	public:
-		Device();
-		Device(Poly* base, double height, double density);
-		
-	public:
-		double surface() override
-		{
-			if (_height == -1)
-			{
-				_surface = 0;
-				for (int i = 0; i < _device.size(); i++)
-				{
-					_surface += (_device[i] -> _surface);
-				}
-				return _surface;
-			}
-			
-			else
-				return _surface;
-		}
-		
-		
-		double volume() override
-		{
-			if (_height == -1)
-			{
-				_volume = 0;
-				for (int i = 0; i < _device.size(); i++)
-				{
-					_volume += (_device[i] -> _volume);
-				}
-				return _volume;
-			}
-			
-			else
-				return _volume;
-		}
-		
-		
-		double mass() override
-		{
-			if (_height == -1)
-			{
-				_mass = 0;
-				for (int i = 0; i < _device.size(); i++)
-				{
-					_mass += (_device[i] -> _mass);
-				}
-				return _mass;
-			}
-			
-			else
-				return _mass;
-		}
-		
-	public:
-		void add(Device* const object);
-		void insert(Device* object, unsigned int index);
-		const Device* operator[](unsigned int index) const;
-		
-	private:
-		void _Update();
-		
-	private:
-		Vector<Device*> _device;
+public:
+	Device();
+
+public:
+	void AddShape(const Shape& object);
+	void AddDevice(const Device& object);
+	unsigned int size();
+	
+public:
+	double surface();
+	double volume();
+	double mass();
+	
+public:
+	void extract(std::vector<Shape>* vec);
+	
+public:
+	std::vector<Shape> owned;
+	
+private:
+	std::vector<Shape> _shapes;
+	std::vector<Device> _devices;
 };
 
 
-Device::Device()
-: Shape::Shape(){}
+Device::Device(){}
 
-
-Device::Device(Poly* base, double height, double density)
-: Shape::Shape(base, height, density)
+void Device::AddShape(const Shape& object)
 {
-	_device.push(this);
+	_shapes.push_back(object);
 }
 
-
-void Device::add(Device* const object)
+void Device::AddDevice(const Device& object)
 {
-	_device.push(object);
-	_Update();
+	_devices.push_back(object);
 }
 
-
-void Device::insert(Device* object, unsigned int index)
+unsigned int Device::size()
 {
-	_device.insert(object, index);
-	_Update();
+	owned.clear();
+	extract(&owned);
+	
+	return owned.size();
 }
 
-
-void Device::_Update()
+double Device::surface()
 {
-	surface();
-	volume();
-	mass();
+	double total = 0;
+	
+	owned.clear();
+	extract(&owned);
+	
+	for (int i = 0; i < owned.size(); i++)
+		total += owned[i].surface();
+	
+	return total;
 }
+
+double Device::volume()
+{
+	double total = 0;
+	
+	owned.clear();
+	extract(&owned);
+	
+	for (int i = 0; i < owned.size(); i++)
+		total += owned[i].volume();
+	
+	return total;
+}
+
+double Device::mass()
+{
+	double total = 0;
+	
+	owned.clear();
+	extract(&owned);
+	
+	for (int i = 0; i < owned.size(); i++)
+		total += owned[i].mass();
+	
+	return total;
+}
+
+void Device::extract(std::vector<Shape>* vec)
+{
+	for (int i = 0; i < _shapes.size(); i++)
+		vec -> push_back(_shapes[i]);
+		
+	for (int i = 0; i < _devices.size(); i++)
+		_devices[i].extract(vec); 
+}
+

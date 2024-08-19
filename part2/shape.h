@@ -2,59 +2,66 @@
 #include "poly.h"
 
 
-class Shape      //prism object
+class Shape
 {
-	public:
-		Shape();
-		Shape(Poly* base, double height, double density);
-		
-	public:
-		virtual double surface();
-		virtual double volume();
-		virtual double mass();
-			
-	protected:
-		Poly* _base = nullptr;
-		double _height;
-		double _density;
-		double _surface;
-		double _volume;
-		double _mass;
-		
+public:
+	Shape(const Poly& base, double height, double density);
+	
+public:
+	double surface() const;
+	double volume() const;
+	double mass() const;
+	
+private:
+	void _CalcSurface();
+	void _CalcVolume();
+	void _CalcMass();
+	
+private:
+	Poly _base = Poly(-1);
+	double _height;
+	double _density;
+	double _surface;
+	double _volume;
+	double _mass;
 };
 
 
-
-Shape::Shape()
-: _height(-1), _density(-1), _surface(0), _volume(0), _mass(0){}
-
-
-Shape::Shape(Poly* base, double height, double density)
-: _height(height), _density(density)
+Shape::Shape(const Poly& base, double height, double density)
+	: _base(base), _height(height), _density(density)
 {
-	_base = base;
-	_surface = surface();
-	_volume = volume();
-	_mass = mass();
+	_CalcSurface();
+	_CalcVolume();
+	_CalcMass();
 }
 
-
-double Shape::surface()
+double Shape::surface() const
 {
-	double lateral = (_base -> perimeter()) * _height;
-	return lateral + 2 * (_base -> area());
+	return _surface;
 }
 
-
-double Shape::volume()
+double Shape::volume() const
 {
-	return (_base -> area()) * _height;
+	return _volume;
 }
 
-
-double Shape::mass()
+double Shape::mass() const
 {
-	return _density * volume();
+	return _mass;
 }
 
+void Shape::_CalcSurface()
+{
+	double lateral = _base.perimeter() * _height;
+	_surface = lateral + (2 * _base.area());
+}
 
+void Shape::_CalcVolume()
+{
+	_volume = _base.area() * _height;
+}
+
+void Shape::_CalcMass()
+{
+	_mass = _volume * _density;
+}
