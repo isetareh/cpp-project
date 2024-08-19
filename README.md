@@ -29,15 +29,7 @@ This repository contains three C++ header files designed for geometric and physi
 ### `poly.h`
 
 The `poly.h` header file contains definitions and functions for creating and managing 2D polygonal shapes.
-
-#### Key Functions
-
-- **`Polygon createShape(int sides, float distanceFromCenter)`**
-  - Creates a 2D polygon with the specified number of sides and distance from the center.
   
-- **`BaseProperties getBase()`**
-  - Returns the base properties of the shape for further calculations.
-
 ### `shape.h`
 
 The `shape.h` header file extends 2D shapes into 3D and provides functions to create and manage 3D shapes, compute their volume, and calculate their surface area.
