@@ -5,19 +5,24 @@
   # Vector Implementation Performance Comparison
 
 ## Overview
-
-This project compares the performance of two custom vector implementations in C++. The first implementation uses a single pointer for internal storage, while the second uses a double pointer. The comparison involves inserting and removing elements using both vector implementations and measuring the time taken for these operations.
+This project compares the performance of two custom vector implementations in C++. The first implementation uses a single pointer for internal storage, while the second uses a double pointer. The comparison involves inserting and removing elements using both vector implementations and measuring the time taken for these operations in milliseconds.
 
 ## Components
-
 - **SinglePointerVector**: A vector implementation using a single pointer for internal storage.
 - **DoublePointerVector**: A vector implementation using a double pointer for internal storage.
-- **main.cpp**: Main file that includes both vector classes and performs the performance comparison.
+- **main.cpp**: Main file that includes both vector classes and does the performance comparison.
+
+## Details
+Both vectros instantiate with 100 shape objects that each allocate one megabyte worth of data. Then the program performs 10 insertion operations at the first index of the vector(which is the most costly insertion operation). The same process happens with the remove function at index zero(which again is the most costly remove operation).
+
+
 
 ## One of my test example:
 ![res](Part1/result1.png)
+results are compiled for windows(vs code)
 
 The vector that made by double pointer is working faster than the other one.
+
 
 # part2:
 # Geometric and Physical Calculation Headers
