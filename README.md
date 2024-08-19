@@ -40,22 +40,12 @@ The `device.h` header file computes physical properties related to the shape and
 
 #### Key Functions
 
-- **`float calculateMass(const ShapeProperties& shapeVector, const DeviceProperties& deviceVector)`**
-  - Computes the mass of the shape based on shape and device properties.
+- **`double mass()`**
+  - Computes the mass of the shape based on shapes and sub-devices properties.
 
-- **`float calculateVolume(const ShapeProperties& shapeVector)`**
+- **`double volume()`**
   - Computes the volume using the shape's properties.
 
-- **`float calculateSurfaceArea(const ShapeProperties& shapeVector)`**
+- **`double surface()`**
   - Computes the surface area using the shape's properties.
 
-## Example Usage
-
-### Create a 2D Shape
-
-```cpp
-#include "poly.h"
-
-int main() {
-    // Create a polygon with 6 sides and a distance of 10 units from the center
-    Polygon po
