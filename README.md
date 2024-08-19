@@ -20,15 +20,15 @@ This project compares the performance of two custom vector implementations in C+
 The vector that made by double pointer is working faster than the other one.
 
 # part2:
-# Geometric and Physical Calculation Libraries
+# Geometric and Physical Calculation Headers
 
-This repository contains three C++ libraries designed for geometric and physical calculations: `poly`, `shape`, and `device`. These libraries facilitate creating geometric shapes, calculating their properties, and computing physical characteristics based on those shapes.
+This repository contains three C++ header files designed for geometric and physical calculations: `poly.h`, `shape.h`, and `device.h`. These headers provide functionalities to create geometric shapes, calculate their properties, and compute physical characteristics based on those shapes.
 
-## Libraries Overview
+## Headers Overview
 
-### `poly` Library
+### `poly.h`
 
-The `poly` library handles 2D polygonal shapes. It allows you to create polygons based on the number of sides and the distance from the center (e.g., the radius for regular polygons).
+The `poly.h` header file contains definitions and functions for creating and managing 2D polygonal shapes.
 
 #### Key Functions
 
@@ -38,9 +38,9 @@ The `poly` library handles 2D polygonal shapes. It allows you to create polygons
 - **`BaseProperties getBase()`**
   - Returns the base properties of the shape for further calculations.
 
-### `shape` Library
+### `shape.h`
 
-The `shape` library extends 2D shapes into 3D by providing functions to create and manage 3D shapes, compute their volume, and calculate their surface area.
+The `shape.h` header file extends 2D shapes into 3D and provides functions to create and manage 3D shapes, compute their volume, and calculate their surface area.
 
 #### Key Functions
 
@@ -53,9 +53,9 @@ The `shape` library extends 2D shapes into 3D by providing functions to create a
 - **`float getSurfaceArea()`**
   - Calculates the surface area of the 3D shape.
 
-### `device` Library
+### `device.h`
 
-The `device` library computes physical properties related to the shape and the device using vectors.
+The `device.h` header file computes physical properties related to the shape and the device using vectors.
 
 #### Key Functions
 
@@ -77,6 +77,4 @@ The `device` library computes physical properties related to the shape and the d
 
 int main() {
     // Create a polygon with 6 sides and a distance of 10 units from the center
-    Polygon polygon = createShape(6, 10.0f);
-    return 0;
-}
+    Polygon po
