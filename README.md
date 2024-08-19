@@ -15,10 +15,5 @@ This project compares the performance of two custom vector implementations in C+
 - **main.cpp**: Main file that includes both vector classes and performs the performance comparison.
 
 ## One of my test example:
-Average insertion time for Vector in milliseconds: 1.4
+![res](Part1/Screenshot 2024-08-19 110656.png)
 
-Average remove time for Vector in milliseconds: 1
-
-Average insertion time for VectorPtr in milliseconds: 0.1
-
-Average remove time for VectorPtr in milliseconds: 0
