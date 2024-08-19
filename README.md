@@ -19,9 +19,9 @@ Both vectros instantiate with 100 shape objects that each allocate one megabyte 
 
 ## One of my test example:
 ![res](Part1/result1.png)
-results are compiled for windows(vs code)
+- results are compiled for windows(vs code)
 
-The vector that made by double pointer is working faster than the other one.
+- The vector that made by double pointer is working faster than the other one.
 
 
 # part2:
@@ -50,4 +50,5 @@ The `device.h` header file computes physical properties related to the shape and
 
 - **`double surface()`**
   - Computes the surface area using the shape's properties.
-
+***
+Both .exe files available in their respective folders.
