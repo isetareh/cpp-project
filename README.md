@@ -32,7 +32,7 @@ The `poly.h` header file contains definitions and functions for creating 2D poly
   
 ### `shape.h`
 
-The `shape.h` header file extends 2D shapes into 3D and provides functions to create 3D shapes, compute their volume, and calculate their surface area.
+The `shape.h` header file extends 2D shapes into 3D shapes via a height and density parameter, calculate their volume, surface area and mass.
 
 #### Key Functions
 
