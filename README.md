@@ -15,7 +15,7 @@ This project compares the performance of two custom vector implementations in C+
 - **main.cpp**: Main file that includes both vector classes and performs the performance comparison.
 
 ## One of my test example:
-![result1](Part1/result1.png)
+![res](Part1/result1.png)
 
 The vector that made by double pointer is working faster than the other one.
 
